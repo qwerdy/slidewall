@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-29 15:29+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/ui/AboutSlidewallDialog.ui.h:1
+msgid "Copyright (C) 2012 fioan89@gmail.com <fioan89@gmail.com>"
+msgstr ""
+
+#: ../data/ui/AboutSlidewallDialog.ui.h:2
+msgid "Follow up my PPA"
+msgstr ""
+
+#: ../data/ui/AboutSlidewallDialog.ui.h:3
+msgid ""
+"# Copyright (C) 2012 fioan89@gmail.com <fioan89@gmail.com>\n"
+"# This program is free software: you can redistribute it and/or modify it \n"
+"# under the terms of the GNU General Public License version 3, as "
+"published \n"
+"# by the Free Software Foundation.\n"
+"# \n"
+"# This program is distributed in the hope that it will be useful, but \n"
+"# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
+"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
+"# PURPOSE.  See the GNU General Public License for more details.\n"
+"# \n"
+"# You should have received a copy of the GNU General Public License along \n"
+"# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+msgstr ""
+
+#: ../slidewall.desktop.in.h:1 ../data/ui/SlidewallWindow.ui.h:1
+msgid "Slidewall"
+msgstr ""
+
+#: ../slidewall.desktop.in.h:2
+msgid "Slidewall application"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:2
+msgid "_File"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:3
+msgid "_Help"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:4
+msgid "Contents"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:5
+msgid "Wall Mode"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:6
+msgid "SlideShow Mode"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:7
+msgid "Live Wallpaper Mode"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:8
+msgid "Timing for Slideshow Mode"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:9
+msgid "SlideShow Timing:"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:10
+msgid " minutes    "
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:11
+msgid "seconds"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:12
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:13
+msgid "Minimize to system tray"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:14
+msgid "Notify me when wallpaper changes"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:15
+msgid "Run  Slidewall when Ubuntu is starting"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:16
+msgid "Reset Preferences"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:17
+msgid "Save Preferences"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:18
+msgid "Quit SlideWall"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:19
+msgid "Close to tray"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:20
+msgid "Preferences"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:21
+msgid "Wallpapers"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:22
+msgid "Options"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:23
+msgid " Start"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:24
+msgid "Start Slideshow"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:25
+msgid " Delete"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:26
+msgid " Load Imges"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:27
+msgid " Load Folder"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:28
+msgid "How the wallpaper will loo on your desktop"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:29
+msgid "Zoom"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:30
+msgid "Scaled"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:31
+msgid "Centered"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:32
+msgid "Spanned"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:33
+msgid "Stretched"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:34
+msgid "Wallpaper"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:35
+msgid "Slideshow"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:36
+msgid "Info"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:37
+msgid "Start LiveWall"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:38
+msgid "Import WallClock"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:39
+msgid "Delete WallClock"
+msgstr ""
+
+#: ../data/ui/SlidewallWindow.ui.h:40
+msgid "Live Wallpapers"
+msgstr ""
+
+#: ../slidewall/__init__.py:34
+msgid "Show debug messages (-vv debugs slidewall_lib also)"
+msgstr ""

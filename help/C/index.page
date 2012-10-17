@@ -1,0 +1,34 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <!-- This shows in the title bar so does not show [icon] -->
+  <title type="text">Slidewall</title>
+  <desc>The <app>Slidewall</app> help.</desc>
+  <credit type="author">
+    <name>Faur Ioan-Aurel</name>
+    <email>fioan89@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <license href="http://creativecommons.org/licenses/by-sa/3.0/">
+  <p>Creative Commons Attribution-Share Alike 3.0 Unported License</p>
+  </license>
+</info>
+
+<title>
+<!-- This shows on the page in title font -->
+<!-- the icon only shows when installed -->
+<media type="image" mime="image/png" src="figures/icon.png">[icon]</media>
+<app>Slidewall</app> Help
+</title>
+
+<p>Slidwall is a wallpaper changer for Unity desktop.The main goal is to eat very few resources and to be fun.Check it out,you will not be dissappointed!</p>
+
+<!-- This is the visible index -->
+<section id="contents" style="2column">
+<!-- other pages needs to have a link to index#contents for this to work -->
+<title>Contents</title>
+</section>
+
+</page>

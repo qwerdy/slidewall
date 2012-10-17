@@ -1,0 +1,27 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="Preferences">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Faur Ioan-Aurel</name>
+    <email>fioan89@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>A simple way to configure Slidewall</desc>
+</info>
+
+<title>Preferences</title>
+<p>In this mode you can select if you want a wallpaper slideshow or you will use the Live feature. </p>
+<p>
+In Timing for SlideShow Mode you will set the period after which the background will change.
+</p>
+<p>
+You can also enable notification or minimize to tray.
+</p>
+
+<p>
+You dont need to use Save Preferences button.The settings will be saved automatically.
+</p>
+</page>

@@ -1,0 +1,18 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: slidewall
+Upstream-Contact: fioan89@gmail.com <fioan89@gmail.com>
+Source: https://launchpad.net/slidewall
+
+Files: *
+Copyright: (C)
+Copyright: (C) != 1:
+Copyright: (C) 2006 Johann C. Rocholl <johann@browsershots.org>
+Copyright: (C) 2006 Nicko van Someren <nicko@nicko.org>
+Copyright: (C) 2009 David Jones <drj@pobox.com>
+Copyright: (C) 2012 fioan89@gmail.com <fioan89@gmail.com>
+Copyright: (C) 2012 fioan89@gmail.com &lt;fioan89@gmail.com&gt;
+Copyright: (C) 2012 fioan89@gmail.com &lt;fioan89@gmail.com&gt;</property>
+Copyright: (C) == 3 and
+License: GPL-3
+ The full text of the GPL is distributed in
+ /usr/share/common-licenses/GPL-3 on Debian systems.

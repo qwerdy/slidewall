@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Slidewall
+_Comment=Slidewall application
+Categories=GNOME;Utility;
+Exec=slidewall
+Icon=/usr/share/slidewall/media/slidewall.svg
+Terminal=false
+Type=Application

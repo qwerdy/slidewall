@@ -1,0 +1,24 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="Live">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Faur Ioan-Aurel</name>
+    <email>fioan89@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Check out the Live feature</desc>
+</info>
+
+<title>Live Mode</title>
+<p>In this mode you can use live images from the internet.</p>
+<p>
+Right now you can use the sunlight map ,wich will change every 20 minutes,or you can try the New Wallbase or Random Wallbase.The last two options will download images from the wallbase.cc.
+</p>
+<p>
+Please keep in mind that the last two options will take a while at first selection.That is because Slidewall must parse the wallbase.cc webpage to get your wallpapers.I will try to talk with the guys from the wallbase.cc and maybe we will resolve this issue by writing an API that will let developers to  write better and faster code.
+</p>
+
+</page>

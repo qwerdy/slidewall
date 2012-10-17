@@ -1,0 +1,15 @@
+[]try to improve Live mode ->wallbase features
+[x]find new features for Live mode
+[x]force slidewall to automatically save the setting without using
+the save button
+[x]add option to start Slidewall when Ubuntu start
+[x]integrate Slidewall with system tray
+[]integrate Slidewall with Unity System Settings
+[x]Add vladstudio clock support
+[]Add option to import new vladstudio clocks
+[]Add option to delete vladstudio clock's but don't let the user to delete 
+the default clock's or any other widget's from LiveMode
+[x]There are some problems with different clocks that don't show your hour.
+[]refresh hour for vladstudio clock less
+
+

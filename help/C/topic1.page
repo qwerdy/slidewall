@@ -1,0 +1,24 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="Slideshow">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Faur Ioan-Aurel</name>
+    <email>fioan89@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Check out the Slideshow feature</desc>
+</info>
+
+<title>Slideshow Mode</title>
+<p>In this mode you can add individual wallpapers or you can import an entire folder of pictures.</p>
+<p>
+Select how you want your wallpaper to look from top right Option panel.After that just hit start and your background will start to change with the timing you set in the Preferences tab.
+</p>
+<p>
+Your wallpapers will be remembered when you start the application.Please take note that if you hit the Apply button from Live Wallpapers,this mode will stop working.
+</p>
+
+</page>
