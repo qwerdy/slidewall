@@ -529,7 +529,7 @@ class Window(Gtk.Window):
             self.notify_engine.wall_notify('Slidewall',key + ' is your new wallpaper!',self.config_engine.slidewall_data+'/media/slidewall.png')
         return True
 
-    def on_livechange_time(self,user_data):
+    def on_livechange_time(self,force=False):
         '''Change the wallpaper for the live mode'''
         opt = self.livemode_position
         print str(opt)
@@ -558,13 +558,17 @@ class Window(Gtk.Window):
             current = 0
 
             try:
-                self.livemode_list = self.wall_base.get_newest_url();
+                self.livemode_list = self.wall_base.get_newest_url(force);
                 if(self.livemode_last == len(self.livemode_list) - 1):
                     self.livemode_last = 0
+                    print("on_livechange_time::All newest pictures have been used, fetching new list!")
+                    return self.on_livechange_time(True)
                 else :
-                    self.livemode_last = self.livemode_last + 1    
-                print('url:::' + self.livemode_list[str(self.livemode_last)])
+                    self.livemode_last += 1    
                 url = urllib.urlopen(self.livemode_list[str(self.livemode_last)])
+                if url.getcode() != 200 and not force: #if computer hibernated/suspended/turned-on for long time, urls become invalid.
+                    print("on_livechange_time::failed to open url(code!=200), will try again with a new set of list.")
+                    return self.on_livechange_time(True)  
                 buff = url.read()
                 stream = open(livemode_path,'w')
                 stream.write(buff)
@@ -579,12 +583,17 @@ class Window(Gtk.Window):
             #download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg
             current = 0
             try:
-                self.livemode_list = self.wall_base.get_random_url();
+                self.livemode_list = self.wall_base.get_random_url(force);
                 if(self.livemode_last == len(self.livemode_list) - 1):
                     self.livemode_last = 0
+                    print("on_livechange_time::All random pictures have been used, fetching new random list!")
+                    return self.on_livechange_time(True)
                 else :
-                    self.livemode_last = self.livemode_last + 1  
-                url = urllib.urlopen(self.livemode_list[str(self.livemode_last)])                
+                    self.livemode_last += 1  
+                url = urllib.urlopen(self.livemode_list[str(self.livemode_last)])    
+                if url.getcode() != 200 and not force: #if computer hibernated/suspended/turned-on for long time, urls become invalid.
+                    print("on_livechange_time::failed to open url(code!=200), will try again with a new set of random images.")
+                    return self.on_livechange_time(True)            
                 buff = url.read()
                 stream = open(livemode_path,'w')
                 stream.write(buff)
