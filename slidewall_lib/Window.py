@@ -480,7 +480,7 @@ class Window(Gtk.Window):
             if(self.ui.check_notify.get_active()):
                 self.notify_engine.wall_notify('Slidewall',key + ' is your new wallpaper!',self.config_engine.slidewall_data+'/media/slidewall.png')
         else:
-            self.on_livechange_time(None)
+            self.on_livechange_time()
 
     def on_menu_prev(self,widget,data=None):
         #previous wallpaper
@@ -501,7 +501,7 @@ class Window(Gtk.Window):
             if(self.ui.check_notify.get_active()):
                 self.notify_engine.wall_notify('Slidewall',key + ' is your new wallpaper!',self.config_engine.slidewall_data+'/media/slidewall.png')
         else:
-            self.on_livechange_time(None)
+            self.on_livechange_time(prev=True)
 
 
    
@@ -529,87 +529,54 @@ class Window(Gtk.Window):
             self.notify_engine.wall_notify('Slidewall',key + ' is your new wallpaper!',self.config_engine.slidewall_data+'/media/slidewall.png')
         return True
 
-    def on_livechange_time(self,force=False):
+    def on_livechange_time(self,force=False,prev=False):
         '''Change the wallpaper for the live mode'''
         opt = self.livemode_position
-        print str(opt)
         if(str(opt).isdigit() or (opt == None)):
             opt = 'live earth'
             self.livemode_position = 'live earth'
-        livemode_path = self.config_engine.home_dir + '/' + self.config_engine.share_dir + '/slidewall/live/slidewall.jpg'
-        print("livemode_path:::::" + livemode_path)
-        #sunlight wallpaper
-        if(opt == 'live earth'):
-            #download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg
-            try:
-                url = urllib.urlopen('http://www.opentopia.com/images/data/sunlight/world_sunlight_map_rectangular.jpg')
-                buff = url.read()
-                stream = open(livemode_path,'w')
-                stream.write(buff)
-                #set wallpaper
-                self.wall_engine.set_wallpaper('file://' + livemode_path)
-                self.wall_engine.set_picture_options('zoom')
-                return True
-            except Exception:
-                self.notify_engine.wall_notify('Slidewall','Please check your internet connection!\nPerhaps maybe opentopia.com is down!',self.config_engine.slidewall_data+'/media/slidewall.png')
-                return None
-        elif(opt == 'new wallbase'):
-            #download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg
-            current = 0
 
-            try:
-                self.livemode_list = self.wall_base.get_newest_url(force);
-                if(self.livemode_last == len(self.livemode_list) - 1):
-                    self.livemode_last = 0
-                    print("on_livechange_time::All newest pictures have been used, fetching new list!")
-                    return self.on_livechange_time(True)
-                else :
-                    self.livemode_last += 1    
-                url = urllib.urlopen(self.livemode_list[str(self.livemode_last)])
-                if url.getcode() != 200 and not force: #if computer hibernated/suspended/turned-on for long time, urls become invalid.
-                    print("on_livechange_time::failed to open url(code!=200), will try again with a new set of list.")
-                    return self.on_livechange_time(True)  
-                buff = url.read()
-                stream = open(livemode_path,'w')
-                stream.write(buff)
-                #set wallpaper
-                self.wall_engine.set_wallpaper('file://' + livemode_path)
-                self.wall_engine.set_picture_options('zoom')
-                return True
-            except Exception:
-                self.notify_engine.wall_notify('Slidewall','Please check your internet connection!\nOr maybe wallbase.cc is down!',self.config_engine.slidewall_data+'/media/slidewall.png')
-                return None
-        elif(opt == 'random wallbase' ):
-            #download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg
-            current = 0
-            try:
-                self.livemode_list = self.wall_base.get_random_url(force);
-                if(self.livemode_last == len(self.livemode_list) - 1):
-                    self.livemode_last = 0
-                    print("on_livechange_time::All random pictures have been used, fetching new random list!")
-                    return self.on_livechange_time(True)
-                else :
-                    self.livemode_last += 1  
-                url = urllib.urlopen(self.livemode_list[str(self.livemode_last)])    
-                if url.getcode() != 200 and not force: #if computer hibernated/suspended/turned-on for long time, urls become invalid.
-                    print("on_livechange_time::failed to open url(code!=200), will try again with a new set of random images.")
-                    return self.on_livechange_time(True)            
-                buff = url.read()
-                stream = open(livemode_path,'w')
-                stream.write(buff)
-                #set wallpaper
-                print("on_livechange_time::" + str(self.livemode_last) + self.livemode_list[str(self.livemode_last)])
-                self.wall_engine.set_wallpaper('file://' + livemode_path)
-                self.wall_engine.set_picture_options('zoom')
-                return True
-            except Exception:
-                self.notify_engine.wall_notify('Slidewall','Please check your internet connection!\nOr maybe wallbase.cc is down!',self.config_engine.slidewall_data+'/media/slidewall.png')
-                return None
+        if(opt == 'live earth'):
+            return self.download_and_set_wallpaper('http://www.opentopia.com/images/data/sunlight/world_sunlight_map_rectangular.jpg')
+
+        elif opt == 'new wallbase' or opt == 'random wallbase':
+            livemode_list = self.wall_base.get_url(opt, force)
+            if(self.livemode_last == len(livemode_list) - 1):
+                self.livemode_last = 0
+                print("on_livechange_time : wallbase ::All pictures have been used, fetching new list!")
+                return self.on_livechange_time(force=True)
+            if prev and self.livemode_last > 1:
+                self.livemode_last -= 1
+            else:
+                self.livemode_last += 1
+            return self.download_and_set_wallpaper(livemode_list[self.livemode_last-1])
+
         else:
             print 'Window::livechange()::called'
             self.wallclock_engine.update(basename = self.live_engine.storee[opt])
             return True
 
+
+    def download_and_set_wallpaper(self, url):
+        '''download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg'''
+
+        livemode_path = self.config_engine.home_dir + '/' + self.config_engine.share_dir + '/slidewall/live/slidewall.jpg'
+        print("download_and_set_wallpaper :: " + livemode_path)
+        try:
+            site = urllib.urlopen(url)
+            if site.getcode() != 200:
+                print("write_url_to_target :: url failed(code!=200)")
+                return False
+            buff = site.read()
+            stream = open(livemode_path,'w')
+            stream.write(buff)
+            #set wallpaper
+            self.wall_engine.set_wallpaper('file://' + livemode_path)
+            self.wall_engine.set_picture_options('zoom')
+            return True
+        except:
+            self.notify_engine.wall_notify('Slidewall','Please check your internet connection!\nOr maybe wallbase.cc is down!',self.config_engine.slidewall_data+'/media/slidewall.png')
+            return False
 
 
     def on_bt_start_clicked(self,widget,data=None):
@@ -699,8 +666,8 @@ class Window(Gtk.Window):
                 GObject.source_remove(self.timer_id)
                 self.timer_id = 1
 
-            self.on_livechange_time(None)  
-            self.timer_id = GObject.timeout_add_seconds(1200,self.on_livechange_time,None) #20 minutes
+            self.on_livechange_time()  
+            self.timer_id = GObject.timeout_add_seconds(1200,self.on_livechange_time) #20 minutes
                 
         elif(opt == 'new wallbase'):
             print("Sending notification 1!")
@@ -710,8 +677,8 @@ class Window(Gtk.Window):
             if('timer_id' in vars(self) or 'timer_id' in globals()):
                 GObject.source_remove(self.timer_id)
                 self.timer_id = 1
-            self.on_livechange_time(None)  
-            self.timer_id = GObject.timeout_add_seconds(900,self.on_livechange_time,None) #15 minutes
+            self.on_livechange_time()  
+            self.timer_id = GObject.timeout_add_seconds(900,self.on_livechange_time) #15 minutes
         elif(opt == 'random wallbase'):
             print("Sending notification 2!")
             #send notification
@@ -720,8 +687,8 @@ class Window(Gtk.Window):
             if('timer_id' in vars(self) or 'timer_id' in globals()):
                 GObject.source_remove(self.timer_id)
                 self.timer_id = 1
-            self.on_livechange_time(None)  
-            self.timer_id = GObject.timeout_add_seconds(900,self.on_livechange_time,None) #15 minutes
+            self.on_livechange_time()  
+            self.timer_id = GObject.timeout_add_seconds(900,self.on_livechange_time) #15 minutes
         else:
             print("Sending notification 3!")
             #send notification
@@ -730,12 +697,12 @@ class Window(Gtk.Window):
             if('timer_id' in vars(self) or 'timer_id' in globals()):
                 GObject.source_remove(self.timer_id)
                 self.timer_id = 1
-            self.on_livechange_time(None)
+            self.on_livechange_time()
             #call sync  
             import time
             sync = 60 - int(time.strftime("%S"))
             print 'Window::on_bt_apply_clicked()::going live in ' + str(sync) + ' seconds'
-            self.timer_id = GObject.timeout_add_seconds(sync,self.sync_clock,None) #remaining seconds till the next minute
+            self.timer_id = GObject.timeout_add_seconds(sync,self.sync_clock) #remaining seconds till the next minute
 
 
     def sync_clock(self,user_data = None):
@@ -747,8 +714,8 @@ class Window(Gtk.Window):
             GObject.source_remove(self.timer_id)
             self.timer_id = 1
         print('Window::sync_clock()::called')
-        self.on_livechange_time(None)
-        self.timer_id = GObject.timeout_add_seconds(60,self.on_livechange_time,None) #1 minute      
+        self.on_livechange_time()
+        self.timer_id = GObject.timeout_add_seconds(60,self.on_livechange_time) #1 minute      
         #don't get back here
         return False
     def set_autostart(self):
