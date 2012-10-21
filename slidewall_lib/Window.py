@@ -541,15 +541,21 @@ class Window(Gtk.Window):
 
         elif opt == 'new wallbase' or opt == 'random wallbase':
             livemode_list = self.wall_base.get_url(opt, force)
-            if(self.livemode_last == len(livemode_list) - 1):
+            if(self.livemode_last == len(livemode_list) - 1) and not force:
                 self.livemode_last = 0
                 print("on_livechange_time : wallbase ::All pictures have been used, fetching new list!")
                 return self.on_livechange_time(force=True)
+            
             if prev and self.livemode_last > 1:
-                self.livemode_last -= 1
-            else:
-                self.livemode_last += 1
-            return self.download_and_set_wallpaper(livemode_list[self.livemode_last-1])
+                self.livemode_last -= 2
+            self.livemode_last += 1
+
+            if self.download_and_set_wallpaper(livemode_list[self.livemode_last-1]):
+                return True
+            elif force:
+                return False
+            else: #Try again, with new list...             
+                return self.on_livechange_time(force=True, prev=prev)
 
         else:
             print 'Window::livechange()::called'
@@ -561,7 +567,7 @@ class Window(Gtk.Window):
         '''download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg'''
 
         livemode_path = self.config_engine.home_dir + '/' + self.config_engine.share_dir + '/slidewall/live/slidewall.jpg'
-        print("download_and_set_wallpaper :: " + livemode_path)
+        print("download_and_set_wallpaper :: " + url)
         try:
             site = urllib.urlopen(url)
             if site.getcode() != 200:
