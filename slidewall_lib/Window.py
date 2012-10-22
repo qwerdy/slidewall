@@ -537,7 +537,7 @@ class Window(Gtk.Window):
             self.livemode_position = 'live earth'
 
         if(opt == 'live earth'):
-            return self.download_and_set_wallpaper('http://www.opentopia.com/images/data/sunlight/world_sunlight_map_rectangular.jpg')
+            self.download_and_set_wallpaper('http://www.opentopia.com/images/data/sunlight/world_sunlight_map_rectangular.jpg')
 
         elif opt == 'new wallbase' or opt == 'random wallbase':
             livemode_list = self.wall_base.get_url(opt, force)
@@ -550,17 +550,14 @@ class Window(Gtk.Window):
                 self.livemode_last -= 2
             self.livemode_last += 1
 
-            if self.download_and_set_wallpaper(livemode_list[self.livemode_last-1]):
-                return True
-            elif force:
-                return False
-            else: #Try again, with new list...             
+            if not self.download_and_set_wallpaper(livemode_list[self.livemode_last-1]) and not force:
                 return self.on_livechange_time(force=True, prev=prev)
 
         else:
             print 'Window::livechange()::called'
             self.wallclock_engine.update(basename = self.live_engine.storee[opt])
-            return True
+        #Return True so gobject keep going
+        return True
 
 
     def download_and_set_wallpaper(self, url):
