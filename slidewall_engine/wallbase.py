@@ -6,7 +6,7 @@ class WallBase:
         self.wallbase_url = 'http://wallbase.cc/search/'
 
         self.wallbase_newest_url = 'http://wallbase.cc/search/'
-        self.wallbase_random_url = 'http://wallbase.cc/random/'
+        self.wallbase_random_url = 'http://wallbase.cc/random/2/eqeq/0x0/0/110/20'
         self.wallbase_search_url = '/0/213/eqeq/0x0/0/1/1/0/60/relevance/desc/wallpapers'
 
         self.return_list = []
@@ -47,18 +47,21 @@ class WallBase:
                 final_url = self.wallbase_url + str(tag) + self.wallbase_search_url
             else: #opt == 'random':
                 final_url = self.wallbase_random_url
-
-            f = urllib.urlopen(final_url)
-            s = f.read()
-            for line in s.split('\n'):
-                if('http://wallbase.cc/wallpaper/' in line):
-                    value = line[line.find("http://wallbase.cc/wallpaper/"):line.find('" id="')]
-                    ff = urllib.urlopen(value)
-                    ss = ff.read()
-                    bb = ss.find("+B('")
-                    if bb:
-                        real_url = self.wtf_wallbase(ss[bb+4 : ss.find("'", bb+4)])
-                        #print real_url
-                        self.return_list.append(real_url)
+            try:
+                f = urllib.urlopen(final_url)
+                s = f.read()
+                for line in s.split('\n'):
+                    if('http://wallbase.cc/wallpaper/' in line):
+                        value = line[line.find("http://wallbase.cc/wallpaper/"):line.find('" id="')]
+                        ff = urllib.urlopen(value)
+                        ss = ff.read()
+                        bb = ss.find("+B('")
+                        if bb:
+                            real_url = self.wtf_wallbase(ss[bb+4 : ss.find("'", bb+4)])
+                            if real_url.find('http://'):
+                                continue
+                            self.return_list.append(real_url)
+            except IOError: #urllib
+                print "wallbase :: Failed fetching a wallbase url!"
         
         return self.return_list 

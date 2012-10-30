@@ -551,7 +551,8 @@ class Window(Gtk.Window):
             self.livemode_last += 1
 
             if not self.download_and_set_wallpaper(livemode_list[self.livemode_last-1]) and not force:
-                return self.on_livechange_time(force=True, prev=prev)
+                self.livemode_last = 0
+                return self.on_livechange_time(force=True)
 
         else:
             print 'Window::livechange()::called'
@@ -564,7 +565,7 @@ class Window(Gtk.Window):
         '''download wallpaper and save it on /home/user/.local/share/slidewall/live/slidewallslidemode.jpg'''
 
         livemode_path = self.config_engine.home_dir + '/' + self.config_engine.share_dir + '/slidewall/live/slidewall.jpg'
-        print("download_and_set_wallpaper :: " + url)
+        print "download_and_set_wallpaper ::" ,self.livemode_last, url
         try:
             site = urllib.urlopen(url)
             if site.getcode() != 200:
