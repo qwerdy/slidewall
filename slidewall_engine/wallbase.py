@@ -57,11 +57,16 @@ class WallBase:
                         ss = ff.read()
                         bb = ss.find("+B('")
                         if bb:
-                            real_url = self.wtf_wallbase(ss[bb+4 : ss.find("'", bb+4)])
+                            try:
+                                real_url = self.wtf_wallbase(ss[bb+4 : ss.find("'", bb+4)])
+                            except IndexError:
+                                print "wallbase :: wtf_wallbase had an IndexError!"
+                                continue
                             if real_url.find('http://'):
+                                print "wallbase :: wtf_wallbase did not return an url!"
                                 continue
                             self.return_list.append(real_url)
             except IOError: #urllib
-                print "wallbase :: Failed fetching a wallbase url!"
+                print "wallbase :: A wallpaper url failed."
         
         return self.return_list 

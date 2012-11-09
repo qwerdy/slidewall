@@ -20,5 +20,8 @@ class NotifyServer:
         Notify.init(app_name)
          
     def wall_notify(self,app_name='',message='',icon_path=''): 
-        notify = Notify.Notification.new(app_name,message,icon_path)
-        notify.show()
+    	try:
+        	notify = Notify.Notification.new(app_name,message,icon_path)
+        	notify.show()
+        except:
+        	print "Notification failed. Time out !?"

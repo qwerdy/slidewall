@@ -541,6 +541,9 @@ class Window(Gtk.Window):
 
         elif opt == 'new wallbase' or opt == 'random wallbase':
             livemode_list = self.wall_base.get_url(opt, force)
+            if not livemode_list:
+                print "on_livechange_time : wallbase returned a zero length list!"
+                return True
             if(self.livemode_last == len(livemode_list) - 1) and not force:
                 self.livemode_last = 0
                 print("on_livechange_time : wallbase ::All pictures have been used, fetching new list!")
@@ -579,6 +582,7 @@ class Window(Gtk.Window):
             self.wall_engine.set_picture_options('zoom')
             return True
         except:
+            print 'download_and_set_wallpaper :: ERROR on url: ', url
             self.notify_engine.wall_notify('Slidewall','Please check your internet connection!\nOr maybe wallbase.cc is down!',self.config_engine.slidewall_data+'/media/slidewall.png')
             return False
 
