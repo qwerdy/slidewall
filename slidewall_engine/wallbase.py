@@ -6,7 +6,7 @@ class WallBase:
         self.wallbase_url = 'http://wallbase.cc/search/'
 
         self.wallbase_newest_url = 'http://wallbase.cc/search/'
-        self.wallbase_random_url = 'http://wallbase.cc/random/2/eqeq/0x0/0/110/20'
+        self.wallbase_random_url = 'http://wallbase.cc/random/23/eqeq/0x0/0/110/20'
         self.wallbase_search_url = '/0/213/eqeq/0x0/0/1/1/0/60/relevance/desc/wallpapers'
 
         self.return_list = []

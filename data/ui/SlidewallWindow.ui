@@ -86,7 +86,6 @@
             <signal name="delete-event" handler="on_bt_close_clicked" swapped="no"/>
             <child>
               <object class="GtkMenuItem" id="mnu_file">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_File</property>
@@ -98,7 +97,6 @@
                     <child>
                       <object class="GtkImageMenuItem" id="mnu_close">
                         <property name="label">gtk-close</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -112,7 +110,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="mnu_help">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Help</property>
@@ -124,7 +121,6 @@
                     <child>
                       <object class="GtkImageMenuItem" id="mnu_contents">
                         <property name="label" translatable="yes">Contents</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="image">image2</property>
@@ -135,7 +131,6 @@
                     <child>
                       <object class="GtkImageMenuItem" id="mnu_about">
                         <property name="label">gtk-about</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -188,12 +183,10 @@
                     <child>
                       <object class="GtkRadioButton" id="r_bt_slide">
                         <property name="label" translatable="yes">SlideShow Mode</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">20</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0.55000001192092896</property>
                         <property name="active">True</property>
@@ -210,12 +203,10 @@
                     <child>
                       <object class="GtkRadioButton" id="r_bt_live">
                         <property name="label" translatable="yes">Live Wallpaper Mode</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="margin_left">20</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
@@ -363,11 +354,9 @@
                     <child>
                       <object class="GtkCheckButton" id="check_tray">
                         <property name="label" translatable="yes">Minimize to system tray</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
@@ -381,11 +370,9 @@
                     <child>
                       <object class="GtkCheckButton" id="check_notify">
                         <property name="label" translatable="yes">Notify me when wallpaper changes</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
@@ -399,13 +386,10 @@
                     <child>
                       <object class="GtkCheckButton" id="check_autostart">
                         <property name="label" translatable="yes">Run  Slidewall when Ubuntu is starting</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="xalign">0</property>
-                        <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
                       <packing>
@@ -433,11 +417,9 @@
                     <child>
                       <object class="GtkButton" id="bt_reset">
                         <property name="label" translatable="yes">Reset Preferences</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_action_appearance">False</property>
                         <signal name="clicked" handler="on_bt_reset_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -449,11 +431,9 @@
                     <child>
                       <object class="GtkButton" id="bt_save">
                         <property name="label" translatable="yes">Save Preferences</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_action_appearance">False</property>
                         <signal name="clicked" handler="on_bt_save_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -465,11 +445,9 @@
                     <child>
                       <object class="GtkButton" id="bt_quit">
                         <property name="label" translatable="yes">Quit SlideWall</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_action_appearance">False</property>
                         <signal name="clicked" handler="on_bt_quit_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -481,11 +459,9 @@
                     <child>
                       <object class="GtkButton" id="bt_close">
                         <property name="label" translatable="yes">Close to tray</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="use_action_appearance">False</property>
                         <signal name="clicked" handler="on_bt_close_clicked" swapped="no"/>
                       </object>
                       <packing>
@@ -577,14 +553,12 @@
                 <child>
                   <object class="GtkButton" id="bt_start">
                     <property name="label" translatable="yes"> Start</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Start Slideshow</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="image">image1</property>
                     <property name="xalign">0.50999999046325684</property>
                   </object>
@@ -596,13 +570,11 @@
                 <child>
                   <object class="GtkButton" id="bt_delete">
                     <property name="label" translatable="yes"> Delete</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="image">image3</property>
                     <property name="relief">half</property>
                     <signal name="clicked" handler="bt" swapped="no"/>
@@ -615,13 +587,11 @@
                 <child>
                   <object class="GtkButton" id="bt_select_files">
                     <property name="label" translatable="yes"> Load Imges</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="image">image4</property>
                     <property name="relief">half</property>
                     <signal name="clicked" handler="on_bt_select_files_clicked" swapped="no"/>
@@ -634,13 +604,11 @@
                 <child>
                   <object class="GtkButton" id="bt_select_folder">
                     <property name="label" translatable="yes"> Load Folder</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="image">image5</property>
                     <property name="relief">half</property>
                     <signal name="clicked" handler="on_bt_select_folder_clicked" swapped="no"/>
@@ -767,7 +735,6 @@
                 <child>
                   <object class="GtkButton" id="bt_apply">
                     <property name="label">gtk-apply</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
@@ -776,7 +743,6 @@
                     <property name="has_tooltip">True</property>
                     <property name="tooltip_markup" translatable="yes">Start LiveWall</property>
                     <property name="tooltip_text" translatable="yes">Start LiveWall</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <property name="xalign">0.50999999046325684</property>
                   </object>
@@ -803,7 +769,6 @@
                 <child>
                   <object class="GtkButton" id="bt_add_clock">
                     <property name="label">gtk-add</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
@@ -812,7 +777,6 @@
                     <property name="has_tooltip">True</property>
                     <property name="tooltip_markup" translatable="yes">Import WallClock</property>
                     <property name="tooltip_text" translatable="yes">Import WallClock</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <property name="xalign">0.50999999046325684</property>
                     <signal name="clicked" handler="on_bt_add_clock_clicked" swapped="no"/>
@@ -825,7 +789,6 @@
                 <child>
                   <object class="GtkButton" id="bt_del_clock">
                     <property name="label">gtk-delete</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="width_request">200</property>
                     <property name="height_request">36</property>
                     <property name="visible">True</property>
@@ -834,7 +797,6 @@
                     <property name="has_tooltip">True</property>
                     <property name="tooltip_markup" translatable="yes">Delete WallClock</property>
                     <property name="tooltip_text" translatable="yes">Delete WallClock</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <property name="xalign">0.50999999046325684</property>
                     <signal name="clicked" handler="on_bt_del_clock_clicked" swapped="no"/>
